@@ -52,6 +52,12 @@ const getResults = queryParams =>
     .then(averages(getAverageNames(queryParams)))
     .then(JSON.stringify);
 
+// Supported URLs:
+// http://localhost:3000/averages
+// http://localhost:3000/averages?population&areaKM2
+// http://localhost:3000/averages?population
+// http://localhost:3000/averages?areaKM2
+
 app.get('/averages', (req, res) =>
   getResults(req.query).then(v => res.send(v))
 );
