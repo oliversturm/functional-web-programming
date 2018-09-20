@@ -59,6 +59,9 @@ const getResults = queryParams =>
 // http://localhost:3000/averages?areaKM2
 
 app.get('/averages', (req, res) =>
-  getResults(req.query).then(v => res.send(v))
+  getResults(req.query).then(v => {
+    res.set('Content-Type', 'application/json');
+    res.send(v);
+  })
 );
 app.listen(3000, () => console.log('Server running'));
