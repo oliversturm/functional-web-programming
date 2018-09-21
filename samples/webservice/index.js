@@ -58,6 +58,7 @@ const getResults = queryParams =>
 // http://localhost:3000/averages?population
 // http://localhost:3000/averages?areaKM2
 
+app.use(require('morgan')('dev'));
 app.get('/averages', (req, res) =>
   getResults(req.query).then(v => {
     res.set('Content-Type', 'application/json');
